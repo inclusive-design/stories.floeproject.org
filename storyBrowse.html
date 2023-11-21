@@ -1,0 +1,1232 @@
+<!DOCTYPE html><html style="font-size: 16px;"><head>
+<title>Browse Stories | The Storytelling Project</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<script src="/js/infusion-all.js"></script><style type="text/css">.fl-progEnhance-basic, .fl-ProgEnhance-basic { display: none; } .fl-progEnhance-enhanced, .fl-ProgEnhance-enhanced { display: block; }</style>
+
+<!-- UIO stylesheets -->
+<link rel="stylesheet" type="text/css" href="css/Enactors.css">
+<link rel="stylesheet" type="text/css" href="css/PrefsEditor.css">
+<link rel="stylesheet" type="text/css" href="css/SeparatedPanelPrefsEditor.css">
+
+<script src="/js/handlebars.js"></script>
+<script src="/js/markdown-it.js"></script>
+<script src="/js/binder_1.js"></script>
+<script src="/js/transforms_1.js"></script>
+<script src="/js/equals.js"></script>
+<script src="/js/helper.js"></script>
+<script src="/js/jsonify.js"></script>
+<script src="/js/md-common.js"></script>
+<script src="/js/messageHelper.js"></script>
+<script src="/js/renderer.js"></script>
+<script src="/js/ajaxCapable.js"></script>
+<script src="/js/hasRequiredOptions.js"></script>
+<script src="/js/md-client.js"></script>
+<script src="/js/messageHelper_1.js"></script>
+<script src="/js/renderer_1.js"></script>
+<script src="/js/templateAware.js"></script>
+<script src="/js/templateFormControl.js"></script>
+<script src="/js/templateManager_1.js"></script>
+<script src="/js/templateMessage.js"></script>
+<script src="/js/templateRequestAndRender.js"></script>
+
+<script src="/js/dynamicViewComponentManager.js"></script>
+<script src="/js/binder.js"></script>
+<script src="/js/block.js"></script>
+<script src="/js/block-audio.js"></script>
+<script src="/js/block-image.js"></script>
+<script src="/js/block-text.js"></script>
+<script src="/js/block-video.js"></script>
+<script src="/js/block-timeBased.js"></script>
+<script src="/js/blockUi.js"></script>
+<script src="/js/blockUi-audioBlockViewer.js"></script>
+<script src="/js/blockUi-imageBlockViewer.js"></script>
+<script src="/js/blockUi-textBlockViewer.js"></script>
+<script src="/js/blockUi-videoBlockViewer.js"></script>
+<script src="/js/blockUi-timeBased.js"></script>
+<script src="/js/base-page-storyBrowse.js"></script>
+<script src="/js/base-page.js"></script>
+<script src="/js/story.js"></script>
+<script src="/js/templateManager.js"></script>
+<script src="/js/ui.js"></script>
+<script src="/js/ui-authorControls.js"></script>
+<script src="/js/ui-menu.js"></script>
+<script src="/js/ui-storyBrowser.js"></script>
+<script src="/js/uploader.js"></script>
+<script src="/js/transforms.js"></script>
+<script src="/js/UIOMultilingualDemo.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css">
+
+<link href="https://fonts.googleapis.com/css?family=Vollkorn:400,700|Work+Sans:400,500,700&amp;display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/storyTelling.css">
+<link rel="stylesheet" href="css/fluid.css">
+
+<script src="/js/storyTellingServerUI.js"></script>
+
+<link rel="stylesheet" type="text/css" href="css/learningReflections.css"></head>
+<body class="fl-theme-prefsEditor-default" style="line-height: 1.15;">
+
+<div class="sjrk-prefsEditor-container">
+    <!-- BEGIN markup for Preference Editor -->
+   <div class="flc-prefsEditor-separatedPanel fl-prefsEditor-separatedPanel" id="fluid-id-8k3fvzh7-1361">
+	   <!--
+		   This div is for the sliding panel bar that shows and hides the Preference Editor controls in the mobile view.
+		   A separate panel bar for mobile displays is needed to preserver the correct tab order.
+	   -->
+	   <div class="fl-panelBar fl-panelBar-smallScreen">
+		   <span class="fl-prefsEditor-buttons">
+			   <button class="flc-slidingPanel-toggleButton fl-prefsEditor-showHide" role="button" aria-controls="fluid-id-8k3fvzh7-2337" aria-label="Show Display Preferences" aria-pressed="false" aria-expanded="false">+ Show Preferences</button>
+			   <button class="flc-prefsEditor-reset fl-prefsEditor-reset" aria-controls="fluid-id-8k3fvzh7-2337" role="button" style="display: none;"><span class="fl-icon-undo"></span> Reset</button>
+		   </span>
+	   </div>
+
+	   <!-- This is the div that will contain the Preference Editor component -->
+	   <div class="flc-slidingPanel-panel flc-prefsEditor-iframe" id="fluid-id-8k3fvzh7-2337" aria-label="User Preferences" role="group" style="height: 0px;"><iframe class="flc-iframe fl-prefsEditor-separatedPanel-iframe" src="SeparatedPanelPrefsEditorFrame.html" style="display: none; height: 0px;"></iframe></div>
+
+	   <!--
+		   This div is for the sliding panel bar that shows and hides the Preference Editor controls in the desktop view.
+		   A separate panel bar for desktop displays is needed to preserver the correct tab order.
+	   -->
+	   <div class="fl-panelBar fl-panelBar-wideScreen">
+		   <span class="fl-prefsEditor-buttons">
+			   <button class="flc-slidingPanel-toggleButton fl-prefsEditor-showHide" role="button" aria-controls="fluid-id-8k3fvzh7-2337" aria-label="Show Display Preferences" aria-pressed="false" aria-expanded="false">+ Show Preferences</button>
+			   <button class="flc-prefsEditor-reset fl-prefsEditor-reset" aria-controls="fluid-id-8k3fvzh7-2337" role="button" style="display: none;"><span class="fl-icon-undo"></span> Reset</button>
+		   </span>
+	   </div>
+   </div>
+   <!-- END markup for Preference Editor -->
+</div>
+
+<div class="sjrk-st-author-controls-container sjrkc-st-author-controls-container"></div>
+<header class="sjrk-st-page-header-container sjrkc-st-page-header-container"><div class="sjrk-st-page-header">
+    <a href="index.html" class="sjrk-st-page-header-main-title">The<br>Storytelling<br>Project</a>
+</div>
+<div class="sjrk-st-top-menu">
+    <nav>
+        <ul>
+            <li><a href="workshops.html">Workshops</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="storyBrowse.html">Browse Stories</a></li>
+        </ul>
+    </nav>
+    <a class="sjrk-st-edit-link" href="http://staging-stories.floeproject.org/storyEdit.html">Explore tool</a>
+</div>
+</header>
+
+<!-- This div is for the table of contents feature provided by the Preferences Editor -->
+<div class="flc-toc-tocContainer toc"></div>
+<main class="sjrk-st-page-content-container">
+    <div class="sjrk-main-container">
+        <div class="sjrk-st-menu sjrkc-st-menu" id="fluid-id-8k3fvzh7-3267"></div>
+        <div class="sjrk-st-story-browser sjrkc-st-story-browser" id="fluid-id-8k3fvzh7-3266"><div class="sjrk-st-page-body">
+    <section class="sjrk-st-lr-knockout">
+        <h1>Stories</h1>
+    </section>
+    <section class="sjrk-st-lr-padding">
+        <div class="sjrk-st-browser-view-control-container sjrkc-st-browser-view-control-container ">
+            VIEW: <a class="sjrk-st-browser-view-control-list sjrkc-st-browser-view-control-list" href="javascript:void(0);" aria-label="View stories as list">LIST</a>
+            |
+            <a class="sjrk-st-browser-view-control-grid sjrkc-st-browser-view-control-grid" href="javascript:void(0);" aria-label="View stories as grid">GRID</a>
+        </div>
+        <div class="sjrk-st-browser-stories sjrkc-st-browser-stories ">
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/0e967c80-3aac-11e9-98be-695d9e3c45a1/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">I learned to act and memorize my scripts</h3>
+                            <p class="sjrk-st-browser-story-author">
+                                    by No. 4
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        drama, 
+                                        memorizing script, 
+                                        acting
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/151e03c0-879b-11e9-b178-a79380bdbe47/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">My experiences camping</h3>
+                            <p class="sjrk-st-browser-story-author">
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/177fcea0-264d-11e9-a55a-317414fdb830/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">Breaking our assumptions</h3>
+                            <p class="sjrk-st-browser-story-author">
+                                    by anonymous
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        technology, 
+                                        challenges, 
+                                        presentation, 
+                                        fear
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text, 
+                                        image
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/18fb2950-3aac-11e9-98be-695d9e3c45a1/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">Being Independent</h3>
+                            <p class="sjrk-st-browser-story-author">
+                                    by Myth
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        Responsibilities
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/1a202150-3aac-11e9-98be-695d9e3c45a1/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">How did I become confident</h3>
+                            <p class="sjrk-st-browser-story-author">
+                                    by Mr. Confident
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        confident, 
+                                        how to relieve stress, 
+                                        be assure of yourself
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/1d7623d0-28c9-11e9-98f6-71413982cc35/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">From Fear to Letting Go</h3>
+                            <p class="sjrk-st-browser-story-author">
+                                    by Jennifer
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        Flow
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        image
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/22d85230-2a3b-11e9-98f6-71413982cc35/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">My travelling</h3>
+                            <p class="sjrk-st-browser-story-author">
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/236186b0-40f5-11e9-a3fc-117f000e6d4c/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">About the lock </h3>
+                            <p class="sjrk-st-browser-story-author">
+                                    by MZ
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/2777d9f0-3aad-11e9-98be-695d9e3c45a1/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">Moving in a new country </h3>
+                            <p class="sjrk-st-browser-story-author">
+                                    by Anonymous 16
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        Riding a bus, 
+                                        Learning a new language, 
+                                        Riding a bus, 
+                                        New to a country
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/2931a1f0-879b-11e9-b178-a79380bdbe47/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">The first day</h3>
+                            <p class="sjrk-st-browser-story-author">
+                                    by Gelato
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/2ad53090-3abf-11e9-98be-695d9e3c45a1/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">my view of canada</h3>
+                            <p class="sjrk-st-browser-story-author">
+                                    by abc
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/2ca452c0-2a8e-11e9-98f6-71413982cc35/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">My favorite things.</h3>
+                            <p class="sjrk-st-browser-story-author">
+                                    by Mubina
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text, 
+                                        image
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/2d8bbdf0-5caa-11ea-a24f-b72ef3f26124/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">Taking notes</h3>
+                            <p class="sjrk-st-browser-story-author">
+                            </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/2dbb8f80-879e-11e9-b178-a79380bdbe47/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">Global warming</h3>
+                            <p class="sjrk-st-browser-story-author">
+                                    by Enviralment
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/2fbf9d20-2a39-11e9-98f6-71413982cc35/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">How My wife and I decided to move to Canada</h3>
+                            <p class="sjrk-st-browser-story-author">
+                                    by ZD
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text, 
+                                        image
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/30af2fb0-3ac0-11e9-98be-695d9e3c45a1/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">My experience about learning language</h3>
+                            <p class="sjrk-st-browser-story-author">
+                                    by Ynnah
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        learn the Language skills
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/35b5a520-40f6-11e9-a3fc-117f000e6d4c/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">My first day in Canada school </h3>
+                            <p class="sjrk-st-browser-story-author">
+                                    by M
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/3c9f3210-3aad-11e9-98be-695d9e3c45a1/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">How to ice skate</h3>
+                            <p class="sjrk-st-browser-story-author">
+                                    by Kian
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        ice skate
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/3d2afa40-2a39-11e9-98f6-71413982cc35/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title"></h3>
+                            <p class="sjrk-st-browser-story-author">
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/44165be0-3aad-11e9-98be-695d9e3c45a1/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">How I learned on how to use the bus</h3>
+                            <p class="sjrk-st-browser-story-author">
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/57490f70-879a-11e9-b178-a79380bdbe47/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">Brothers</h3>
+                            <p class="sjrk-st-browser-story-author">
+                                    by Anonymous
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/6028a360-3aad-11e9-98be-695d9e3c45a1/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">Learning to drive a car</h3>
+                            <p class="sjrk-st-browser-story-author">
+                                    by Jan Carlo Torres
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        hardworks
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/63801940-2a3a-11e9-98f6-71413982cc35/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">About myself </h3>
+                            <p class="sjrk-st-browser-story-author">
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text, 
+                                        image
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/702789c0-473c-11e9-a3fc-117f000e6d4c/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title"></h3>
+                            <p class="sjrk-st-browser-story-author">
+                                    by Carol Stokes
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text, 
+                                        image, 
+                                        audio, 
+                                        video
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/71080660-40f4-11e9-a3fc-117f000e6d4c/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">My story is about cooking </h3>
+                            <p class="sjrk-st-browser-story-author">
+                                    by S k
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/73e65960-3aad-11e9-98be-695d9e3c45a1/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">How to ice skate</h3>
+                            <p class="sjrk-st-browser-story-author">
+                                    by Silent k soul
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        ice skate
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/757d01a0-879e-11e9-b178-a79380bdbe47/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">The Happiest Day of my Life</h3>
+                            <p class="sjrk-st-browser-story-author">
+                                    by FaZe_Tfue
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        My new pet
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text, 
+                                        image
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/93a03290-2a3a-11e9-98f6-71413982cc35/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">Memories of my childhood </h3>
+                            <p class="sjrk-st-browser-story-author">
+                                    by Ghazwan 
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text, 
+                                        image
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/a1290a10-40f4-11e9-a3fc-117f000e6d4c/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">learning how to use computer</h3>
+                            <p class="sjrk-st-browser-story-author">
+                                    by king
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/a177e2a0-879b-11e9-b178-a79380bdbe47/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">The fire!</h3>
+                            <p class="sjrk-st-browser-story-author">
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/a3a87710-40f6-11e9-a3fc-117f000e6d4c/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">little girl</h3>
+                            <p class="sjrk-st-browser-story-author">
+                                    by m c
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        audio
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/a51dec50-28c9-11e9-98f6-71413982cc35/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">LOVE IS LOVE 7</h3>
+                            <p class="sjrk-st-browser-story-author">
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        friendship, 
+                                        love, 
+                                        sharing
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        image
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/a62af8c0-2a38-11e9-98f6-71413982cc35/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">My hopes </h3>
+                            <p class="sjrk-st-browser-story-author">
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/a973a5f0-40f3-11e9-a3fc-117f000e6d4c/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">learning how to cook</h3>
+                            <p class="sjrk-st-browser-story-author">
+                                    by EC
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/ac70af10-3aad-11e9-98be-695d9e3c45a1/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">the day  I learned how to speak another language </h3>
+                            <p class="sjrk-st-browser-story-author">
+                                    by Ridge Angelo Facun
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/acf01b20-40f6-11e9-a3fc-117f000e6d4c/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">اول يوم بل باص</h3>
+                            <p class="sjrk-st-browser-story-author">
+                                    by YE
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        باص
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/b1374550-2a3a-11e9-98f6-71413982cc35/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title"></h3>
+                            <p class="sjrk-st-browser-story-author">
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/b2b3e510-40f5-11e9-a3fc-117f000e6d4c/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">My story is about cleaning house</h3>
+                            <p class="sjrk-st-browser-story-author">
+                                    by k k
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/bdd42440-40f6-11e9-a3fc-117f000e6d4c/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">مدرسة</h3>
+                            <p class="sjrk-st-browser-story-author">
+                                    by MA
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/c35ae7b0-3abf-11e9-98be-695d9e3c45a1/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">Learned how to play video games</h3>
+                            <p class="sjrk-st-browser-story-author">
+                                    by zed
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        learning games/ managed time
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/c75baf70-3abf-11e9-98be-695d9e3c45a1/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">My second language</h3>
+                            <p class="sjrk-st-browser-story-author">
+                                    by Yasuo
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        learn English
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/c8c4c740-3abd-11e9-98be-695d9e3c45a1/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">Bad friends around you - suggestions</h3>
+                            <p class="sjrk-st-browser-story-author">
+                                    by SHFL
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        Bad friends, 
+                                        suggestions
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/d1a35900-3aac-11e9-98be-695d9e3c45a1/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">Learning how to build Confidence </h3>
+                            <p class="sjrk-st-browser-story-author">
+                                    by Boltubs
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        Making friends, 
+                                        Building up Confidencce
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/d476c450-24b3-11e9-865f-b5fe084cdb92/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">My Life as a River</h3>
+                            <p class="sjrk-st-browser-story-author">
+                                    by Dallas
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        Life River
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text, 
+                                        image
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/d8627900-2a3b-11e9-98f6-71413982cc35/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">Moving to Canada</h3>
+                            <p class="sjrk-st-browser-story-author">
+                                    by SB
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/d8d011b0-3abf-11e9-98be-695d9e3c45a1/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">Future Destination</h3>
+                            <p class="sjrk-st-browser-story-author">
+                                    by Bubble Fish
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        Choice, 
+                                        Future
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        image, 
+                                        text
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/dc9cd940-2a39-11e9-98f6-71413982cc35/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">My life story</h3>
+                            <p class="sjrk-st-browser-story-author">
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/dccd4550-5ca9-11ea-b5cc-0f7c24539387/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">Getting my work done</h3>
+                            <p class="sjrk-st-browser-story-author">
+                            </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/dea165c0-25ad-11e9-a55a-317414fdb830/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">The choice</h3>
+                            <p class="sjrk-st-browser-story-author">
+                                    by Liam O'Doherty
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        Education, 
+                                        employment, 
+                                        decision making
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        audio
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/dfe98870-879d-11e9-b178-a79380bdbe47/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">The Crash</h3>
+                            <p class="sjrk-st-browser-story-author">
+                                    by NDS
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        C.N. Tower, 
+                                        Crash
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text, 
+                                        image
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/e5ca8010-87d8-11e9-b178-a79380bdbe47/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">Learning to spell took 25 years</h3>
+                            <p class="sjrk-st-browser-story-author">
+                                    by CC
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        spelling, 
+                                        language
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/ea0261e0-3abf-11e9-98be-695d9e3c45a1/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">A hunter</h3>
+                            <p class="sjrk-st-browser-story-author">
+                                    by Jack
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/f0496030-3aab-11e9-98be-695d9e3c45a1/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">Learning something requires process </h3>
+                            <p class="sjrk-st-browser-story-author">
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        Public speaking, 
+                                        Having confidence
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/f233f280-3af5-11e9-98be-695d9e3c45a1/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">It's cold outside</h3>
+                            <p class="sjrk-st-browser-story-author">
+                                    by Henrique
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text, 
+                                        image, 
+                                        audio, 
+                                        video
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/f506e680-5ca9-11ea-b5cc-0f7c24539387/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">Organizing my math papers</h3>
+                            <p class="sjrk-st-browser-story-author">
+                            </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text
+                                </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="sjrk-st-browser-story-container">
+                    <a class="sjrk-st-browser-story-link" href="storyView/f8e405f0-24b3-11e9-865f-b5fe084cdb92/index.html">
+                        <div class="sjrk-st-browser-story-thumbnail-container">
+                                <div class="sjrk-st-browser-story-thumbnail sjrk-st-browser-story-thumbnail-placeholder" aria-label="LIST"></div>
+                        </div>
+                        <div class="sjrk-st-browser-story-details">
+                            <h3 class="sjrk-st-browser-story-title">Learning to live with Anxiety &amp; Depression</h3>
+                            <p class="sjrk-st-browser-story-author">
+                                    by M
+                            </p>
+                                <p class="sjrk-st-browser-story-tags">Keywords:
+                                        
+                                </p>
+                                <p class="sjrk-st-browser-story-contains">Contains:
+                                        text
+                                </p>
+                        </div>
+                    </a>
+                </div>
+        </div>
+    </section>
+</div>
+</div>
+    </div>
+</main>
+
+<footer class="sjrk-st-page-footer-container sjrkc-st-page-footer-container"><div class="sjrk-st-page-footer-text-container">
+    <p>The Storytelling Project is led by the <a href="https://idrc.ocadu.ca/">Inclusive Design Research Centre</a> at OCAD University with an open community of contributors. Supported by the <a href="https://www.hewlett.org/">William and Flora Hewlett Foundation</a> and the <a href="http://www.oakfnd.org/">Oak Foundation</a>.</p>
+
+    <p>Stories on this site are distributed under the <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0 licence</a>. Please email us at <a href="mailto:stories@idrc.ocadu.ca">stories@idrc.ocadu.ca</a> if you wish to remove your story from this website.</p><p>Hosted by <a href="https://netlify.com/" rel="external">Netlify</a>.</p>
+
+</div>
+<div class="sjrk-st-page-footer-logo-container">
+    <a class="sjrk-st-page-footer-oak-logo" href="http://www.oakfnd.org/" aria-label="Oak Foundation Website"></a>
+    <a class="sjrk-st-page-footer-hewlett-logo" href="https://www.hewlett.org/" aria-label="William and Flora Hewlett Foundation Website"></a>
+    <a class="sjrk-st-page-footer-idrc-logo" href="https://idrc.ocadu.ca/" aria-label="Inclusive Design Research Centre Website"></a>
+</div>
+</footer>
+
+
+
+</body></html>
